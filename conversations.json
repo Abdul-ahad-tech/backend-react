@@ -1,0 +1,45 @@
+{
+  "b0b576c6-0af8-4a22-b950-ab62d28bebc4": {
+    "id": "b0b576c6-0af8-4a22-b950-ab62d28bebc4",
+    "patient_id": "1251ec0e-7942-4710-b729-3dcfd20446de",
+    "patient_name": "AbdulAhad",
+    "doctor_id": null,
+    "doctor_name": null,
+    "status": "pending",
+    "created_at": "2026-05-12T11:19:48.646836",
+    "updated_at": "2026-05-12T11:19:48.646836",
+    "last_message": null,
+    "preview": "",
+    "messages": []
+  },
+  "3aa9853c-93a3-49ca-a0c4-61792eeb684c": {
+    "id": "3aa9853c-93a3-49ca-a0c4-61792eeb684c",
+    "patient_id": "1251ec0e-7942-4710-b729-3dcfd20446de",
+    "patient_name": "AbdulAhad",
+    "doctor_id": "f348816f-b550-4fa7-902b-3c61d9a782e7",
+    "doctor_name": "DRZohaib",
+    "status": "active",
+    "created_at": "2026-05-12T11:38:23.408642",
+    "updated_at": "2026-05-12T11:38:49.666806",
+    "last_message": "take paracetamol",
+    "preview": "",
+    "messages": [
+      {
+        "id": "f6da7e00-a6f6-4ac3-85a1-f618a109bff8",
+        "sender_id": "1251ec0e-7942-4710-b729-3dcfd20446de",
+        "sender_name": "AbdulAhad",
+        "role": "patient",
+        "text": "I am having headache",
+        "timestamp": "2026-05-12T11:38:41.830909"
+      },
+      {
+        "id": "e2b29954-5418-47d3-8dd1-f2a99d40fcdc",
+        "sender_id": "f348816f-b550-4fa7-902b-3c61d9a782e7",
+        "sender_name": "DRZohaib",
+        "role": "doctor",
+        "text": "take paracetamol",
+        "timestamp": "2026-05-12T11:38:49.666806"
+      }
+    ]
+  }
+}
