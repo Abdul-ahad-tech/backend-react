@@ -1,6 +1,2 @@
-# Medical Analyzer — Python dependencies
-# Install with: pip install -r requirements_analyzer.txt
-
-flask
-flask-cors
-PyMuPDF        # PDF text extraction (fitz)
+gunicorn==26.0.0
+packaging==26.2
