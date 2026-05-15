@@ -6,3 +6,4 @@ groq
 PyMuPDF
 gunicorn==26.0.0
 supabase
+bcrypt
