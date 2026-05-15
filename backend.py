@@ -31,7 +31,7 @@ CORS(
     resources={r"/*": {
         "origins": [
             "http://localhost:5173",
-            "http://127.0.0.1:5173"
+            "https://front-end-medical-two.vercel.app/"
         ]
     }},
     supports_credentials=True
@@ -42,7 +42,7 @@ socketio = SocketIO(
     app,
     cors_allowed_origins=[
         "http://localhost:5173",
-        "http://127.0.0.1:5173"
+        "https://front-end-medical-two.vercel.app/"
     ],
     async_mode="threading",
     logger=True,
