@@ -1,1 +1,1 @@
-web: gunicorn -k eventlet backend:app
+web: gunicorn backend:app
