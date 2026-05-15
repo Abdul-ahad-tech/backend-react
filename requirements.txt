@@ -1,5 +1,8 @@
 flask
 flask-cors
-PyMuPDF        # PDF text extraction (fitz)
+flask-socketio
+python-dotenv
+groq
+PyMuPDF
 gunicorn==26.0.0
-packaging==26.2
+eventlet

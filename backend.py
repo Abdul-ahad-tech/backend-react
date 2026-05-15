@@ -44,7 +44,7 @@ socketio = SocketIO(
         "http://localhost:5173",
         "https://front-end-medical-two.vercel.app/"
     ],
-    async_mode="threading",
+    async_mode="eventlet",
     logger=True,
     engineio_logger=True
 )
