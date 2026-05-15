@@ -26,16 +26,22 @@ app.config["SECRET_KEY"] = os.getenv(
 )
 
 # FIXED CORS
+from flask_cors import CORS
+
 CORS(
     app,
-    resources={r"/*": {
-        "origins": [
-            "http://localhost:5173",
-            "https://front-end-medical-two.vercel.app"
-        ]
-    }},
+    resources={r"/*": {"origins": [
+        "http://localhost:5173",
+        "https://front-end-medical-two.vercel.app"
+    ]}},
     supports_credentials=True
 )
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "https://front-end-medical-two.vercel.app"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    return response
 
 # FIXED SOCKETIO
 socketio = SocketIO(
@@ -69,7 +75,11 @@ def home():
     return jsonify({
         "message": "MediAI Backend Running"
     })
-
+ 
+@app.route("/", defaults={"path": ""}, methods=["OPTIONS"])
+@app.route("/<path:path>", methods=["OPTIONS"])
+def handle_options(path):
+    return jsonify({}), 200
 
 @app.route("/health", methods=["GET"])
 def health():
