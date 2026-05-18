@@ -4,7 +4,7 @@ flask-socketio
 python-dotenv
 groq
 PyMuPDF
-gunicorn==26.0.0
+gunicorn==25.0.0
 supabase
 bcrypt
-eventlet
+eventlet==0.33.3
