@@ -36,13 +36,14 @@ CORS(
 # Allow all origins for now (you can restrict later)
 socketio = SocketIO(
     app,
-    cors_allowed_origins="*",  # Allow all during testing
-    async_mode="threading",
-    logger=True,
-    engineio_logger=True
+    cors_allowed_origins=[
+        "http://localhost:5173",
+        "https://front-end-medical-two.vercel.app"
+    ],
+    async_mode="threading"
 )
 
-CORS(app, origins="*")  # Allow all during testing
+
 # ─────────────────────────────────────────────
 # REGISTER BLUEPRINTS
 # ─────────────────────────────────────────────
@@ -64,10 +65,7 @@ def home():
         "message": "MediAI Backend Running"
     })
  
-@app.route("/", defaults={"path": ""}, methods=["OPTIONS"])
-@app.route("/<path:path>", methods=["OPTIONS"])
-def handle_options(path):
-    return jsonify({}), 200
+
 
 @app.route("/health", methods=["GET"])
 def health():
