@@ -1,11 +1,6 @@
 import os
 from dotenv import load_dotenv
 import sys
-# ─────────────────────────────────────────────
-# LOAD ENV
-# ─────────────────────────────────────────────
-load_dotenv(os.path.join(os.path.dirname(__file__), "key.env"))
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -36,12 +31,6 @@ CORS(
     ]}},
     supports_credentials=True
 )
-@app.after_request
-def add_cors_headers(response):
-    response.headers["Access-Control-Allow-Origin"] = "https://front-end-medical-two.vercel.app"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
-    return response
 
 # FIXED SOCKETIO
 socketio = SocketIO(
@@ -50,7 +39,7 @@ socketio = SocketIO(
         "http://localhost:5173",
         "https://front-end-medical-two.vercel.app"
     ],
-    async_mode="threading",
+    async_mode="eventlet",
     logger=True,
     engineio_logger=True
 )
@@ -102,13 +91,12 @@ def socket_test():
 # RUN SERVER
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    print("🚀 MediAI Backend Running on Port 5050")
+    port = int(os.environ.get("PORT", 5000))
 
     socketio.run(
         app,
         host="0.0.0.0",
-        port=5050,
-        debug=True,
-        allow_unsafe_werkzeug=True
+        port=port,
+        debug=False
     )
 print(sys.executable)    
