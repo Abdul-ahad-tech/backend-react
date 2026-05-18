@@ -33,17 +33,16 @@ CORS(
 )
 
 # FIXED SOCKETIO
+# Allow all origins for now (you can restrict later)
 socketio = SocketIO(
     app,
-    cors_allowed_origins=[
-        "http://localhost:5173",
-        "https://front-end-medical-two.vercel.app"
-    ],
-    async_mode="eventlet",
+    cors_allowed_origins="*",  # Allow all during testing
+    async_mode="threading",
     logger=True,
     engineio_logger=True
 )
 
+CORS(app, origins="*")  # Allow all during testing
 # ─────────────────────────────────────────────
 # REGISTER BLUEPRINTS
 # ─────────────────────────────────────────────
